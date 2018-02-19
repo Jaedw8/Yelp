@@ -8,10 +8,11 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class BusinessesViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate {
     
     var businesses: [Business]!
-    
+    var searchController: UISearchController!
+
     
    
     @IBOutlet weak var tableView: UITableView!
@@ -22,6 +23,28 @@ class BusinessesViewController: UIViewController,UITableViewDataSource,UITableVi
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
+        
+        
+        
+        searchController = UISearchController(searchResultsController: nil);
+        searchController.searchResultsUpdater = self as? UISearchResultsUpdating;
+        searchController.dimsBackgroundDuringPresentation = false;
+        searchController.searchBar.sizeToFit();
+        navigationItem.titleView = searchController.searchBar;
+        searchController.hidesNavigationBarDuringPresentation = false;
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
         
         
         Business.searchWithTerm(term: "Thai", completion: { (businesses: [Business]?, error: Error?) -> Void in
@@ -71,7 +94,7 @@ class BusinessesViewController: UIViewController,UITableViewDataSource,UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Business Cell", for: indexPath) as! BusinessCell
+        let cell = tableView.dequeueReusableCell(withIdentifier:"BusinessCell", for: indexPath) as! BusinessCell
         
         cell.business = businesses[indexPath.row]
         return cell
