@@ -1,4 +1,4 @@
-# Project 3 - *Name of App Here*
+# Project 3 - *Yelp*
 
 **Yelp** is a Yelp search app using the [Yelp API](http://www.yelp.com/developers/documentation/v2/search_api).
 
@@ -24,8 +24,9 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Auto Contraints
+2. Search Bar Implementation
+
 
 ## Video Walkthrough
 
